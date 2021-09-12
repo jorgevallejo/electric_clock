@@ -1,15 +1,46 @@
 # Original code from https://stackoverflow.com/questions/11877379/how-to-draw-clock-in-r#11878078
+# And https://stackoverflow.com/questions/7721262/colouring-plot-by-factor-in-r
 
 require('grid')
 require('gridBase')
 
+# Load data
+segmentos <- read.csv("tramos.csv")
+
+# Los inputs son:
+# hora de inicio, hora de fin, y tramo
+
+# One of the inputs of pie is the areas of the pie slices
+# That would be the number of hours in each register (file)
+
+segmentos$slice_area <- segmentos$Fin - segmentos$Inicio
+
+# Pie takes that data in order, so we need to order the files first
+
+segmentos <- segmentos[order(segmentos$Inicio),]
+
+# Reordering factor levels for a nicer plot legend
+segmentos$Tramo <- factor(segmentos$Tramo, levels = c("Valle", "Llana", "Punta"))
+
+# Specify colours of the slices
+# They must be in the same order of the factor levels
+
+colores <- c("green", "orange", "red")
+
 # Draw a pie chart
-pie(c(1,2), # areas of pie slices
+pie(segmentos$slice_area, # areas of pie slices
     clockwise = TRUE, # slices are drawn clockwise
     radius = 1.0,
     init.angle = 90, # starting at 12 o'clock
-    col = c('pink', 'lightblue'), # filling the slices
+    col = colores[segmentos$Tramo], # filling the slices according to levels
     border = NA)
+
+legend(x="right", legend = levels(segmentos$Tramo), col = colores, pch = 15, bty = 'n')
+
+
+
+
+
 
 # Draw the clock
 drawClock <- function (hour, minute) {
