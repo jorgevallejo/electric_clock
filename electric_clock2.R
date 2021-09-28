@@ -7,7 +7,7 @@ horas <- read.csv("tramos2.csv",
 library('ggplot2')
 
 p <- ggplot(horas, aes(x = Hora, y = 1, fill = Tarifa)) +
-  geom_bar(breaks = seq(0,24), width = 2, colour = 'grey', stat = 'identity') +
+  geom_bar(width = 2, colour = 'grey', stat = 'identity') +
   theme_minimal() +
   scale_fill_brewer() +
   coord_polar(start = 0) +
