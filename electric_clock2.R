@@ -14,7 +14,7 @@ p <- ggplot(horas, aes(x = Hora, y = 1, fill = Tarifa)) +
   theme_minimal() +
   theme(axis.text.y = element_blank(),
         axis.title.y = element_blank()) +
-  scale_fill_brewer() +
+  scale_fill_manual(values = c("chartreuse3", "orange", "red")) + # Colours for factors
   coord_polar(start = 0) +
   scale_x_continuous("", limits = c(0,24), breaks = seq(0,24), labels = seq(0,24))
 

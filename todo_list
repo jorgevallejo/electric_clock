@@ -4,6 +4,12 @@ DONE Delete Y axis
 
 DONE Change order of categories in legend
 
-Change colours (green, orange, red)
+DONE Change colours (green, orange, red)
+
+Background colour
+
+Foot text
 
 Generate graph as pdf or png
+
+Clean files (delete electric_clock.r and tramos.csv)
