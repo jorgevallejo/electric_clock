@@ -4,6 +4,9 @@
 horas <- read.csv("tramos2.csv",
                   header = TRUE)
 
+# Reordering factor levels for a nicer plot legend
+horas$Tarifa <- factor(horas$Tarifa, levels = c("Valle", "Llana", "Punta"))
+
 library('ggplot2')
 
 p <- ggplot(horas, aes(x = Hora, y = 1, fill = Tarifa)) +
