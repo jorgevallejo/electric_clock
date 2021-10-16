@@ -14,13 +14,14 @@ p <- ggplot(horas, aes(x = Hora, y = 1, fill = Tarifa)) +
   theme_minimal() +
   theme(axis.text.y = element_blank(),
         axis.title.y = element_blank(),
-        plot.background = element_rect(fill = "lightyellow")) + # Background colour
+        plot.background = element_rect(fill = "lightyellow"),
+        plot.caption = element_text(hjust = 0)) + # Background colour
   scale_fill_manual(values = c("chartreuse3", "orange", "red")) + # Colours for factors
   coord_polar(start = 0) +
   scale_x_continuous("", limits = c(0,24), breaks = seq(0,24), labels = seq(0,24)) +
   labs(title = "TARIFAS DE LA LUZ",
        subtitle = "de lunes a viernes*",
-       caption = "*Durante los fines de semana (sábado y domingo) \nla tarifa es siempre Valle.")
+       caption = "*Durante los fines de semana (sábado y domingo) la tarifa es siempre Valle.")
 
 p
 
@@ -32,5 +33,5 @@ if (!(dir.exists("results"))) {
 # Save as files
 ## Width and height found by trial and error to avoid printing the limits of the graph
 ## pdf format is way lighter than png
-ggsave("results/tarifas.pdf", p, width = 4.7, height = 4.78)
-ggsave("results/tarifas.png", p, width = 4.7, height = 4.78)
+ggsave("results/tarifas.pdf", p, width = 4.82, height = 4.78)
+ggsave("results/tarifas.png", p, width = 4.82, height = 4.78)

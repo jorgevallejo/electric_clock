@@ -12,4 +12,6 @@ DONE Foot text
 
 DONE Generate graph as pdf or png
 
+Automatic values for width and height?
+
 Clean files (delete electric_clock.r and tramos.csv)
