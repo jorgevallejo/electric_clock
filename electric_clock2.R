@@ -1,5 +1,5 @@
 # Second take
-# Code from https://stackoverflow.com/questions/18648115/circular-time-plots-in-r-with-stacked-rose
+# Code adapted from https://stackoverflow.com/questions/18648115/circular-time-plots-in-r-with-stacked-rose
 
 horas <- read.csv("tramos2.csv",
                   header = TRUE)
@@ -23,3 +23,14 @@ p <- ggplot(horas, aes(x = Hora, y = 1, fill = Tarifa)) +
        caption = "*Durante los fines de semana (sábado y domingo) \nla tarifa es siempre Valle.")
 
 p
+
+# Create results directory
+if (!(dir.exists("results"))) {
+  dir.create("results")
+}
+
+# Save as files
+## Width and height found by trial and error to avoid printing the limits of the graph
+## pdf format is way lighter than png
+ggsave("results/tarifas.pdf", p, width = 4.7, height = 4.78)
+ggsave("results/tarifas.png", p, width = 4.7, height = 4.78)

@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# The directory in which images will be saved
+/results/
