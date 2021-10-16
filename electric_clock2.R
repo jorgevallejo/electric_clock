@@ -1,13 +1,13 @@
 # Second take
 # Code adapted from https://stackoverflow.com/questions/18648115/circular-time-plots-in-r-with-stacked-rose
 
-horas <- read.csv("tramos2.csv",
+library('ggplot2')
+
+horas <- read.csv("data/tramos2.csv",
                   header = TRUE)
 
 # Reordering factor levels for a nicer plot legend
 horas$Tarifa <- factor(horas$Tarifa, levels = c("Valle", "Llana", "Punta"))
-
-library('ggplot2')
 
 p <- ggplot(horas, aes(x = Hora, y = 1, fill = Tarifa)) +
   geom_bar(width = 2, colour = 'grey', stat = 'identity') +
