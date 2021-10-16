@@ -1,0 +1,17 @@
+Fix warnings
+
+DONE Delete Y axis
+
+DONE Change order of categories in legend
+
+DONE Change colours (green, orange, red)
+
+DONE Background colour
+
+DONE Foot text
+
+DONE Generate graph as pdf or png
+
+Automatic values for width and height?
+
+Clean files (delete electric_clock.r and tramos.csv)
