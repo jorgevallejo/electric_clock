@@ -17,6 +17,9 @@ p <- ggplot(horas, aes(x = Hora, y = 1, fill = Tarifa)) +
         plot.background = element_rect(fill = "lightyellow")) + # Background colour
   scale_fill_manual(values = c("chartreuse3", "orange", "red")) + # Colours for factors
   coord_polar(start = 0) +
-  scale_x_continuous("", limits = c(0,24), breaks = seq(0,24), labels = seq(0,24))
+  scale_x_continuous("", limits = c(0,24), breaks = seq(0,24), labels = seq(0,24)) +
+  labs(title = "TARIFAS DE LA LUZ",
+       subtitle = "de lunes a viernes*",
+       caption = "*Durante los fines de semana (sábado y domingo) \nla tarifa es siempre Valle.")
 
 p
