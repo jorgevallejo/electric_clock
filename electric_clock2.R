@@ -13,7 +13,8 @@ p <- ggplot(horas, aes(x = Hora, y = 1, fill = Tarifa)) +
   geom_bar(width = 2, colour = 'grey', stat = 'identity') +
   theme_minimal() +
   theme(axis.text.y = element_blank(),
-        axis.title.y = element_blank()) +
+        axis.title.y = element_blank(),
+        plot.background = element_rect(fill = "lightyellow")) + # Background colour
   scale_fill_manual(values = c("chartreuse3", "orange", "red")) + # Colours for factors
   coord_polar(start = 0) +
   scale_x_continuous("", limits = c(0,24), breaks = seq(0,24), labels = seq(0,24))
